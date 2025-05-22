@@ -146,7 +146,7 @@ module.exports = async (opts) => {
     throw new Error('Must pass either "animationData" or "path"')
   }
 
-  const fps = ~~lottieData.fr
+  const fps = 30 //~~lottieData.fr
   const { w = 640, h = 480 } = lottieData
   const aR = w / h
 
@@ -368,7 +368,7 @@ ${inject.body || ''}
       path: (isApng || isMp4) ? undefined : frameOutputPath,
       ...screenshotOpts
     })
-    
+
     if(progress) {
       progress(frame, numFrames)
     }
@@ -413,7 +413,7 @@ ${inject.body || ''}
 
     const params = [
       '-o', escapePath(output),
-      '--fps', Math.min(gifskiOptions.fps || fps, 50), // most of viewers do not support gifs with FPS > 50
+      '--fps', 30, //Math.min(gifskiOptions.fps || fps, 50), // most of viewers do not support gifs with FPS > 50
       gifskiOptions.fast && '--fast',
       '--quality', gifskiOptions.quality,
       '--quiet',
